@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/build.css"> -->
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Time Table</title>
+</head>
+<body>
+    <div class="h-screen w-screen bg-gray-200 flex flex-col">
+        <div class="h-1/2 w-screen bg-green-200 p-4 flex">
+            <div class="h-full w-9/12 bg-purple-200 mr-2">
+                <table class="w-full h-full bg-blue-300">
+                    <thead>
+                       <tr class="bg-blue-200 text-center">
+                          <td >  DAY </td>
+                          <td>9:00-10:00</td>
+                          <td>10:00-11:00</td>
+                          <td>11:00-12:00</td>
+                          <td>12:00-1:00</td>
+                          <td>1:00-2:00</td>
+                          <td>2:00-3:00</td>
+                          <td>3:00-4:00</td>
+                          <td>4:00-5:00</td>
+                          <td>5:00-6:00</td>
+                          <td>6:00-7:00</td>
+                          <td>7:00-8:00</td>
+                       </tr>
+                    </thead>
+                    <tbody>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">MONDAY</td>
+                          <td id="L1" {% if api_data[0].get('L1') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> D1  {{ api_data[0].get('L1') }} </td>
+                          <td id="L2" {% if api_data[0].get('L2') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> C1 {{ api_data[0].get('L2') }} </td>
+                          <td id="L3" {% if api_data[0].get('L3') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> F1/C2 {{ api_data[0].get('L3') }}  [L3]</td>
+                          <td id="L4" {% if api_data[0].get('L4') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> E1  {{ api_data[0].get('L4') }} </td>
+                          <td rowspan="6" class="bg-purple-100 font-bold text-center text-xl">L<br>U<br>N<br>C<br>H<br> </td>
+                          <td id="L25" {% if api_data[0].get('L25') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2 &nbsp; &nbsp; {{ api_data[0].get('L25') }} [L25]</td>
+                          <td id="L26" {% if api_data[0].get('L26') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2 &nbsp; &nbsp; {{ api_data[0].get('L26') }} [L26]</td>
+                          <td id="L27" {% if api_data[0].get('L27') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2 &nbsp; &nbsp; {{ api_data[0].get('L27') }} [L27]</td>
+                          <td id="L28" {% if api_data[0].get('L28') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2 &nbsp; &nbsp; {{ api_data[0].get('L28') }} [L28]</td>
+                          <td id="L29" {% if api_data[0].get('L29') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> &nbsp; &nbsp; {{ api_data[0].get('L29') }}   [L29]</td>
+                          <td id="L30" {% if api_data[0].get('L30') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> &nbsp; &nbsp; {{ api_data[0].get('L30') }}   [L30]</td>
+                       </tr> 
+                        <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">TUESDAY</td>
+                          <td id="L5" {% if api_data[0].get('L5') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp; {{ api_data[0].get('L5') }}&nbsp; &nbsp; [L5]</td>
+                          <td id="L6" {% if api_data[0].get('L6') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp;{{ api_data[0].get('L6') }}&nbsp; &nbsp; [L6]</td>
+                          <td id="L7" {% if api_data[0].get('L7') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C1 &nbsp; &nbsp;{{ api_data[0].get('L7') }}&nbsp; &nbsp; [L7]</td>
+                          <td id="L8" {% if api_data[0].get('L8') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D1 &nbsp; &nbsp;{{ api_data[0].get('L8') }}&nbsp; &nbsp; [L8]</td>
+                          <td id="L31" {% if api_data[0].get('L31') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp;{{ api_data[0].get('L31') }} &nbsp; &nbsp; [L31]</td>
+                          <td id="L32" {% if api_data[0].get('L32') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp;{{ api_data[0].get('L32') }} &nbsp; &nbsp; [L32]</td>
+                          <td id="L33" {% if api_data[0].get('L33') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2 &nbsp; &nbsp;{{ api_data[0].get('L33') }} &nbsp; &nbsp; [L33]</td>
+                          <td id="L34" {% if api_data[0].get('L34') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2 &nbsp; &nbsp;{{ api_data[0].get('L34') }} &nbsp; &nbsp; [L34]</td>
+                          <td id="L35" {% if api_data[0].get('L35') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[0].get('L35') }} &nbsp; &nbsp; [L35]</td>
+                          <td id="L36" {% if api_data[0].get('L36') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[0].get('L36') }} &nbsp; &nbsp; [L36]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">WEDNESDAY</td>
+                          <td id="L9" {% if api_data[0].get('L9') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E1 {{ api_data[0].get('L9') }} &nbsp; &nbsp; [L9]</td>
+                          <td id="L10" {% if api_data[0].get('L10') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F1/B2 {{ api_data[0].get('L10') }} &nbsp; &nbsp; [L10]</td>
+                          <td id="L11" {% if api_data[0].get('L11') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C1 {{ api_data[0].get('L11') }} &nbsp; &nbsp; [L11]</td>
+                          <td id="L12" {% if api_data[0].get('L12') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D1 {{ api_data[0].get('L12') }} &nbsp; &nbsp; [L12]</td>
+                          <td id="L37" {% if api_data[0].get('L37') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2 {{ api_data[0].get('L37') }} &nbsp; &nbsp; [L37]</td>
+                          <td id="L38" {% if api_data[0].get('L38') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2/B1 {{ api_data[0].get('L38') }} &nbsp; &nbsp; [L38]</td>
+                          <td id="L39" {% if api_data[0].get('L39') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2 {{ api_data[0].get('L39') }} &nbsp; &nbsp; [L39]</td>
+                          <td id="L40" {% if api_data[0].get('L40') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2 {{ api_data[0].get('L40') }} &nbsp; &nbsp; [L40]</td>
+                          <td id="L41" {% if api_data[0].get('L41') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">{{ api_data[0].get('L41') }} &nbsp; &nbsp; [L41]</td>
+                          <td id="L42" {% if api_data[0].get('L42') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">{{ api_data[0].get('L42') }} &nbsp; &nbsp; [L42]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">THURSDAY</td>
+                          <td id="L13" {% if api_data[0].get('L13') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F1/D2 &nbsp; &nbsp;{{ api_data[0].get('L13') }} &nbsp; &nbsp; [L13]</td>
+                          <td id="L14" {% if api_data[0].get('L14') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E1 &nbsp; &nbsp;{{ api_data[0].get('L14') }} &nbsp; &nbsp; [L14]</td>
+                          <td id="L15" {% if api_data[0].get('L15') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp;{{ api_data[0].get('L15') }} &nbsp; &nbsp; [L15]</td>
+                          <td id="L16" {% if api_data[0].get('L16') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp;{{ api_data[0].get('L16') }} &nbsp; &nbsp; [L16]</td>
+                          <td id="L43" {% if api_data[0].get('L43') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2/D1 &nbsp; &nbsp;{{ api_data[0].get('L43') }} &nbsp; &nbsp; [L43]</td>
+                          <td id="L44" {% if api_data[0].get('L44') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2 &nbsp; &nbsp;{{ api_data[0].get('L44') }} &nbsp; &nbsp; [L44]</td>
+                          <td id="L45" {% if api_data[0].get('L45') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp;{{ api_data[0].get('L45') }} &nbsp; &nbsp; [L45]</td>
+                          <td id="L46" {% if api_data[0].get('L46') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp;{{ api_data[0].get('L46') }} &nbsp; &nbsp; [L46]</td>
+                          <td id="L47" {% if api_data[0].get('L47') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[0].get('L47') }} &nbsp; &nbsp; [L47]</td>
+                          <td id="L48" {% if api_data[0].get('L48') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[0].get('L48') }} &nbsp; &nbsp; [L48]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">FRIDAY</td>
+                          <td id="L17" {% if api_data[0].get('L17') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C1&nbsp; &nbsp;{{ api_data[0].get('L17') }}&nbsp; &nbsp; [L17]</td>
+                          <td id="L18" {% if api_data[0].get('L18') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D1&nbsp; &nbsp;{{ api_data[0].get('L18') }}&nbsp; &nbsp; [L18]</td>
+                          <td id="L19" {% if api_data[0].get('L19') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E1&nbsp; &nbsp;{{ api_data[0].get('L19') }}&nbsp; &nbsp; [L19]</td>
+                          <td id="L20" {% if api_data[0].get('L20') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F1/A2&nbsp; &nbsp;{{ api_data[0].get('L20') }}&nbsp; &nbsp; [L20]</td>
+                          <td id="L49" {% if api_data[0].get('L49') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2&nbsp; &nbsp;{{ api_data[0].get('L49') }}&nbsp; &nbsp; [L49]</td>
+                          <td id="L50" {% if api_data[0].get('L50') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2&nbsp; &nbsp;{{ api_data[0].get('L50') }}&nbsp; &nbsp; [L50]</td>
+                          <td id="L51" {% if api_data[0].get('L51') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2&nbsp; &nbsp;{{ api_data[0].get('L51') }}&nbsp; &nbsp; [L51]</td>
+                          <td id="L52" {% if api_data[0].get('L52') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2/A1&nbsp; &nbsp;{{ api_data[0].get('L52') }}&nbsp; &nbsp; [L52]</td>
+                          <td id="L53" {% if api_data[0].get('L53') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[0].get('L53') }}&nbsp; &nbsp; [L53]</td>
+                          <td id="L54" {% if api_data[0].get('L54') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[0].get('L54') }}&nbsp; &nbsp; [L54]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">SATURDAY</td>
+                          <td id="L21" {% if api_data[0].get('L21') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp; {{ api_data[0].get('L21') }} &nbsp; &nbsp; [L21]</td>
+                          <td id="L22" {% if api_data[0].get('L22') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp; {{ api_data[0].get('L22') }} &nbsp; &nbsp; [L22]</td>
+                          <td id="L23" {% if api_data[0].get('L23') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp; {{ api_data[0].get('L23') }} &nbsp; &nbsp; [L23]</td>
+                          <td id="L24" {% if api_data[0].get('L24') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp; {{ api_data[0].get('L24') }} &nbsp; &nbsp; [L24]</td>
+                          <td id="L55" {% if api_data[0].get('L55') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp; {{ api_data[0].get('L55') }} &nbsp; &nbsp; [L55]</td>
+                          <td id="L56" {% if api_data[0].get('L56') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp; {{ api_data[0].get('L56') }} &nbsp; &nbsp; [L56]</td>
+                          <td id="L57" {% if api_data[0].get('L57') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp; {{ api_data[0].get('L57') }} &nbsp; &nbsp; [L57]</td>
+                          <td id="L58" {% if api_data[0].get('L58') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp; {{ api_data[0].get('L58') }} &nbsp; &nbsp; [L58]</td>
+                          <td id="L59" {% if api_data[0].get('L59') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp; {{ api_data[0].get('L59') }} &nbsp; &nbsp; [L59]</td>
+                          <td id="L60" {% if api_data[0].get('L60') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp; {{ api_data[0].get('L60') }} &nbsp; &nbsp; [L60]</td>
+                       </tr>
+                    </tbody>
+                 </table>
+            </div>
+            <div class="h-full w-3/12 bg-purple-200 p-3">
+                <div class="h-full w-full bg-gray-200">
+                    <h1 class="pt-4 pb-4 text-2xl font-bold text-center">SLOTS: </h1>
+                    {% for i in api_data[2] %}
+                    <div class="m-2 p-3 border-2 border-black">
+                        <div class="block flex justify-between">
+                           <span class="font-bold pr-5">{{i}} : </span>
+                           <div class="w-1/2">
+                              <span class="p-4 mr-8">{{api_data[2][i]}}</span>
+                           </div>
+                        </div>
+                     </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="h-1/2 w-screen bg-red-200 p-4 flex">
+            <div class="h-full w-9/12 bg-cyan-200 mr-2">
+                <table class="w-full h-full bg-blue-300">
+                    <thead>
+                       <tr class="bg-blue-200 text-center">
+                          <td >  DAY </td>
+                          <td>9:00-10:00</td>
+                          <td>10:00-11:00</td>
+                          <td>11:00-12:00</td>
+                          <td>12:00-1:00</td>
+                          <td>1:00-2:00</td>
+                          <td>2:00-3:00</td>
+                          <td>3:00-4:00</td>
+                          <td>4:00-5:00</td>
+                          <td>5:00-6:00</td>
+                          <td>6:00-7:00</td>
+                          <td>7:00-8:00</td>
+                       </tr>
+                    </thead>
+                    <tbody>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">MONDAY</td>
+                          <td id="L1" {% if api_data[1].get('L1') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> D1  {{ api_data[1].get('L1') }} </td>
+                          <td id="L2" {% if api_data[1].get('L2') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> C1 {{ api_data[1].get('L2') }} </td>
+                          <td id="L3" {% if api_data[1].get('L3') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> F1/C2 {{ api_data[1].get('L3') }}  [L3]</td>
+                          <td id="L4" {% if api_data[1].get('L4') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> E1  {{ api_data[1].get('L4') }} </td>
+                          <td rowspan="6" class="bg-purple-100 font-bold text-center text-xl">L<br>U<br>N<br>C<br>H<br> </td>
+                          <td id="L25" {% if api_data[1].get('L25') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2 &nbsp; &nbsp; {{ api_data[1].get('L25') }} [L25]</td>
+                          <td id="L26" {% if api_data[1].get('L26') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2 &nbsp; &nbsp; {{ api_data[1].get('L26') }} [L26]</td>
+                          <td id="L27" {% if api_data[1].get('L27') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2 &nbsp; &nbsp; {{ api_data[1].get('L27') }} [L27]</td>
+                          <td id="L28" {% if api_data[1].get('L28') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2 &nbsp; &nbsp; {{ api_data[1].get('L28') }} [L28]</td>
+                          <td id="L29" {% if api_data[1].get('L29') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> &nbsp; &nbsp; {{ api_data[1].get('L29') }}   [L29]</td>
+                          <td id="L30" {% if api_data[1].get('L30') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs"> &nbsp; &nbsp; {{ api_data[1].get('L30') }}   [L30]</td>
+                       </tr> 
+                        <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">TUESDAY</td>
+                          <td id="L5" {% if api_data[1].get('L5') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp; {{ api_data[1].get('L5') }}&nbsp; &nbsp; [L5]</td>
+                          <td id="L6" {% if api_data[1].get('L6') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp;{{ api_data[1].get('L6') }}&nbsp; &nbsp; [L6]</td>
+                          <td id="L7" {% if api_data[1].get('L7') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C1 &nbsp; &nbsp;{{ api_data[1].get('L7') }}&nbsp; &nbsp; [L7]</td>
+                          <td id="L8" {% if api_data[1].get('L8') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D1 &nbsp; &nbsp;{{ api_data[1].get('L8') }}&nbsp; &nbsp; [L8]</td>
+                          <td id="L31" {% if api_data[1].get('L31') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp;{{ api_data[1].get('L31') }} &nbsp; &nbsp; [L31]</td>
+                          <td id="L32" {% if api_data[1].get('L32') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp;{{ api_data[1].get('L32') }} &nbsp; &nbsp; [L32]</td>
+                          <td id="L33" {% if api_data[1].get('L33') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2 &nbsp; &nbsp;{{ api_data[1].get('L33') }} &nbsp; &nbsp; [L33]</td>
+                          <td id="L34" {% if api_data[1].get('L34') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2 &nbsp; &nbsp;{{ api_data[1].get('L34') }} &nbsp; &nbsp; [L34]</td>
+                          <td id="L35" {% if api_data[1].get('L35') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[1].get('L35') }} &nbsp; &nbsp; [L35]</td>
+                          <td id="L36" {% if api_data[1].get('L36') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[1].get('L36') }} &nbsp; &nbsp; [L36]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">WEDNESDAY</td>
+                          <td id="L9" {% if api_data[1].get('L9') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E1 {{ api_data[1].get('L9') }} &nbsp; &nbsp; [L9]</td>
+                          <td id="L10" {% if api_data[1].get('L10') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F1/B2 {{ api_data[1].get('L10') }} &nbsp; &nbsp; [L10]</td>
+                          <td id="L11" {% if api_data[1].get('L11') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C1 {{ api_data[1].get('L11') }} &nbsp; &nbsp; [L11]</td>
+                          <td id="L12" {% if api_data[1].get('L12') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D1 {{ api_data[1].get('L12') }} &nbsp; &nbsp; [L12]</td>
+                          <td id="L37" {% if api_data[1].get('L37') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2 {{ api_data[1].get('L37') }} &nbsp; &nbsp; [L37]</td>
+                          <td id="L38" {% if api_data[1].get('L38') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2/B1 {{ api_data[1].get('L38') }} &nbsp; &nbsp; [L38]</td>
+                          <td id="L39" {% if api_data[1].get('L39') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2 {{ api_data[1].get('L39') }} &nbsp; &nbsp; [L39]</td>
+                          <td id="L40" {% if api_data[1].get('L40') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2 {{ api_data[1].get('L40') }} &nbsp; &nbsp; [L40]</td>
+                          <td id="L41" {% if api_data[1].get('L41') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">{{ api_data[1].get('L41') }} &nbsp; &nbsp; [L41]</td>
+                          <td id="L42" {% if api_data[1].get('L42') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">{{ api_data[1].get('L42') }} &nbsp; &nbsp; [L42]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">THURSDAY</td>
+                          <td id="L13" {% if api_data[1].get('L13') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F1/D2 &nbsp; &nbsp;{{ api_data[1].get('L13') }} &nbsp; &nbsp; [L13]</td>
+                          <td id="L14" {% if api_data[1].get('L14') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E1 &nbsp; &nbsp;{{ api_data[1].get('L14') }} &nbsp; &nbsp; [L14]</td>
+                          <td id="L15" {% if api_data[1].get('L15') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp;{{ api_data[1].get('L15') }} &nbsp; &nbsp; [L15]</td>
+                          <td id="L16" {% if api_data[1].get('L16') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp;{{ api_data[1].get('L16') }} &nbsp; &nbsp; [L16]</td>
+                          <td id="L43" {% if api_data[1].get('L43') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2/D1 &nbsp; &nbsp;{{ api_data[1].get('L43') }} &nbsp; &nbsp; [L43]</td>
+                          <td id="L44" {% if api_data[1].get('L44') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2 &nbsp; &nbsp;{{ api_data[1].get('L44') }} &nbsp; &nbsp; [L44]</td>
+                          <td id="L45" {% if api_data[1].get('L45') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp;{{ api_data[1].get('L45') }} &nbsp; &nbsp; [L45]</td>
+                          <td id="L46" {% if api_data[1].get('L46') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp;{{ api_data[1].get('L46') }} &nbsp; &nbsp; [L46]</td>
+                          <td id="L47" {% if api_data[1].get('L47') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[1].get('L47') }} &nbsp; &nbsp; [L47]</td>
+                          <td id="L48" {% if api_data[1].get('L48') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[1].get('L48') }} &nbsp; &nbsp; [L48]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">FRIDAY</td>
+                          <td id="L17" {% if api_data[1].get('L17') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C1&nbsp; &nbsp;{{ api_data[1].get('L17') }}&nbsp; &nbsp; [L17]</td>
+                          <td id="L18" {% if api_data[1].get('L18') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D1&nbsp; &nbsp;{{ api_data[1].get('L18') }}&nbsp; &nbsp; [L18]</td>
+                          <td id="L19" {% if api_data[1].get('L19') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E1&nbsp; &nbsp;{{ api_data[1].get('L19') }}&nbsp; &nbsp; [L19]</td>
+                          <td id="L20" {% if api_data[1].get('L20') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F1/A2&nbsp; &nbsp;{{ api_data[1].get('L20') }}&nbsp; &nbsp; [L20]</td>
+                          <td id="L49" {% if api_data[1].get('L49') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">C2&nbsp; &nbsp;{{ api_data[1].get('L49') }}&nbsp; &nbsp; [L49]</td>
+                          <td id="L50" {% if api_data[1].get('L50') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">D2&nbsp; &nbsp;{{ api_data[1].get('L50') }}&nbsp; &nbsp; [L50]</td>
+                          <td id="L51" {% if api_data[1].get('L51') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">E2&nbsp; &nbsp;{{ api_data[1].get('L51') }}&nbsp; &nbsp; [L51]</td>
+                          <td id="L52" {% if api_data[1].get('L52') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">F2/A1&nbsp; &nbsp;{{ api_data[1].get('L52') }}&nbsp; &nbsp; [L52]</td>
+                          <td id="L53" {% if api_data[1].get('L53') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[1].get('L53') }}&nbsp; &nbsp; [L53]</td>
+                          <td id="L54" {% if api_data[1].get('L54') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp;{{ api_data[1].get('L54') }}&nbsp; &nbsp; [L54]</td>
+                       </tr>
+                       <tr class="">
+                          <td id="day" class="bg-gray-300 text-xs">SATURDAY</td>
+                          <td id="L21" {% if api_data[1].get('L21') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp; {{ api_data[1].get('L21') }} &nbsp; &nbsp; [L21]</td>
+                          <td id="L22" {% if api_data[1].get('L22') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B1 &nbsp; &nbsp; {{ api_data[1].get('L22') }} &nbsp; &nbsp; [L22]</td>
+                          <td id="L23" {% if api_data[1].get('L23') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp; {{ api_data[1].get('L23') }} &nbsp; &nbsp; [L23]</td>
+                          <td id="L24" {% if api_data[1].get('L24') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A1 &nbsp; &nbsp; {{ api_data[1].get('L24') }} &nbsp; &nbsp; [L24]</td>
+                          <td id="L55" {% if api_data[1].get('L55') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp; {{ api_data[1].get('L55') }} &nbsp; &nbsp; [L55]</td>
+                          <td id="L56" {% if api_data[1].get('L56') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">B2 &nbsp; &nbsp; {{ api_data[1].get('L56') }} &nbsp; &nbsp; [L56]</td>
+                          <td id="L57" {% if api_data[1].get('L57') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp; {{ api_data[1].get('L57') }} &nbsp; &nbsp; [L57]</td>
+                          <td id="L58" {% if api_data[1].get('L58') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">A2 &nbsp; &nbsp; {{ api_data[1].get('L58') }} &nbsp; &nbsp; [L58]</td>
+                          <td id="L59" {% if api_data[1].get('L59') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp; {{ api_data[1].get('L59') }} &nbsp; &nbsp; [L59]</td>
+                          <td id="L60" {% if api_data[1].get('L60') %}style="background-color: green;"{% else %}style="background-color: yellow;"{% endif %} class="bg-yellow-200 border-black border-2 text-center font-bold text-xs">&nbsp; &nbsp; {{ api_data[1].get('L60') }} &nbsp; &nbsp; [L60]</td>
+                       </tr>
+                    </tbody>
+                 </table>
+            </div>
+            <div class="h-full w-3/12 bg-purple-200 p-3">
+               <div class="h-full w-full bg-gray-200">
+                   <h1 class="pt-4 pb-4 text-2xl font-bold text-center">SLOTS: </h1>
+                   {% for i in api_data[3] %}
+                       <div class="m-2 p-3 border-2 border-black">
+                           <div class="block flex justify-between">
+                              <span class="font-bold pr-5">{{i}} : </span>
+                              <div class="w-1/2">
+                                 <span class="p-4 mr-8">{{api_data[3][i]}}</span>
+                              </div>
+                           </div>
+                       </div>
+                   {% endfor %}
+               </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
